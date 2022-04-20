@@ -5,11 +5,12 @@ export const COLORS = {
 	secondary: '#071f32',
 	success: '#25cf3c',
 	danger: '#be1e2d',
+	warning: '#bfb32e',
 	gray: '#e6e6e6'
 }
 
 export const SIZES = {
 	padding: 10,
 	margin: 15,
-	boxShadow: `1px 1px 5px 1px ${COLORS.primary}`
+	boxShadow: `1px 1px 5px 1px ${COLORS.danger}`
 }
