@@ -1,0 +1,58 @@
+{
+  "banks": [
+    {
+      "id": 2,
+      "name": "PrivatBank",
+      "rate": "4.5",
+      "max": "3500",
+      "min": "10",
+      "term": "24",
+      "avatar": "https://d2z9uwnt8eubh7.cloudfront.net/media/default/0001/07/0c3e8c9aee06ce531c562c93090e0bd11291a6c7.png"
+    },
+    {
+      "id": 3,
+      "name": "PUMB",
+      "rate": "4.5",
+      "max": "3500",
+      "min": "10",
+      "term": "24",
+      "avatar": ""
+    },
+    {
+      "id": 3,
+      "name": "PrivatBank",
+      "rate": "4.5",
+      "max": "3500",
+      "min": "10",
+      "term": "24",
+      "avatar": "https://d2z9uwnt8eubh7.cloudfront.net/media/default/0001/07/0c3e8c9aee06ce531c562c93090e0bd11291a6c7.png"
+    },
+    {
+      "id": 4,
+      "name": "PUMB",
+      "rate": "4.5",
+      "max": "3500",
+      "min": "10",
+      "term": "24",
+      "avatar": ""
+    },
+    {
+      "id": 5,
+      "name": "PrivatBank",
+      "rate": "4.5",
+      "max": "3500",
+      "min": "10",
+      "term": "24",
+      "avatar": "https://d2z9uwnt8eubh7.cloudfront.net/media/default/0001/07/0c3e8c9aee06ce531c562c93090e0bd11291a6c7.png"
+    },
+    {
+      "id": 6,
+      "name": "PUMB",
+      "rate": "4.5",
+      "max": "3500",
+      "min": "10",
+      "term": "24",
+      "avatar": ""
+    }
+  ]
+}
