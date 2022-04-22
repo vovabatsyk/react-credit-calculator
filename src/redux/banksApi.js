@@ -5,18 +5,12 @@ import {
 
 export const banksApi = createApi({
 	reducerPath: 'banksApi',
-	tagTypes: ['Banks'],
+	tagTypes: ['Banks', 'Bank'],
 	baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3001/' }),
 	endpoints: build => ({
 		getBanks: build.query({
 			query: () => 'banks',
-			providesTags: result =>
-				result
-					? [
-							...result.map(({ id }) => ({ type: 'Banks', id })),
-							'Banks'
-					  ]
-					: ['Banks']
+			providesTags: ['Banks', 'Bank']
 		}),
 		addBank: build.mutation({
 			query: body => ({
@@ -26,6 +20,14 @@ export const banksApi = createApi({
 			}),
 			invalidatesTags: ['Banks']
 		}),
+		editBank: build.mutation({
+			query: ({ id, ...body }) => ({
+				url: `banks/${id}`,
+				method: 'PUT',
+				body
+			}),
+			invalidatesTags: ['Bank']
+		}),
 		deleteBank: build.mutation({
 			query: id => ({
 				url: `banks/${id}`,
@@ -34,7 +36,8 @@ export const banksApi = createApi({
 			invalidatesTags: ['Banks']
 		}),
 		getBank: build.query({
-			query: id => `banks/${id}`
+			query: id => `banks/${id}`,
+			providesTags: ['Bank']
 		})
 	})
 })
@@ -43,5 +46,6 @@ export const {
 	useGetBanksQuery,
 	useAddBankMutation,
 	useDeleteBankMutation,
-	useGetBankQuery
+	useGetBankQuery,
+	useEditBankMutation
 } = banksApi

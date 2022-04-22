@@ -1,44 +1,44 @@
 {
   "banks": [
     {
-      "id": 2,
       "name": "PrivatBank",
-      "rate": "4.5",
-      "max": "3500",
-      "min": "10",
-      "term": "24",
+      "description": "ПриватБа́нк — найбільший за розмірами активів український банк і лідер роздрібного банківського ринку України, зареєстрований 19 березня 1992 року.",
       "avatar": "https://d2z9uwnt8eubh7.cloudfront.net/media/default/0001/07/0c3e8c9aee06ce531c562c93090e0bd11291a6c7.png",
-      "description": "ПриватБа́нк — найбільший за розмірами активів український банк і лідер роздрібного банківського ринку України, зареєстрований 19 березня 1992 року."
-    },
-    {
-      "id": 3,
-      "name": "PUMB",
       "rate": "4.5",
       "max": "3500",
       "min": "10",
       "term": "24",
+      "id": 2
+    },
+    {
+      "name": "PUMB",
+      "description": "ПУМБ – найбільший український банк з приватним капіталом, що надає всі види банківських послуг.",
       "avatar": "https://lh5.ggpht.com/7SWtsYDHQ1Q7_U5x6qNzhE0cYKEQTuIJ9SzzRdGO4420Ig3olM2XMgGtAMLYN2K99w",
-      "description": "ПУМБ – найбільший український банк з приватним капіталом, що надає всі види банківських послуг."
+      "rate": "4.8",
+      "max": "3500",
+      "min": "10",
+      "term": "24",
+      "id": 3
     },
     {
-      "name": "d",
-      "rate": "1",
-      "max": "1",
-      "min": "1",
-      "term": "1",
-      "description": "e",
-      "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Logo_NIKE.svg/2560px-Logo_NIKE.svg.png",
-      "id": 4
+      "name": "Monobank",
+      "description": "monobank — роздрібний продукт АТ «Універсал Банк», який виник у рамках співпраці з командою Fintech Band.",
+      "avatar": "https://cdn-images-1.medium.com/max/1200/1*PxKUZIus4lJELdfYKYJuyA.png",
+      "rate": "4.8",
+      "max": "110000",
+      "min": "10",
+      "term": "24",
+      "id": 5
     },
     {
-      "name": "1",
+      "name": "222",
       "rate": "2",
       "max": "2",
       "min": "2",
       "term": "2",
-      "description": "",
-      "avatar": "",
-      "id": 5
+      "description": "22",
+      "avatar": "22",
+      "id": 6
     }
   ]
 }

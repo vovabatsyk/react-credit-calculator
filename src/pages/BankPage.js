@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
 	useGetBanksQuery,
 	useDeleteBankMutation
@@ -23,12 +23,9 @@ import {
 	AppstoreAddOutlined,
 	CalculatorOutlined
 } from '@ant-design/icons'
-import { AddBankModal } from '../components/AddBankModal'
 
 export const BankPage = () => {
 	const navigate = useNavigate()
-
-	const [addModalVisible, setAddModalVisible] = useState(false)
 
 	const {
 		data: banks = [],
@@ -52,10 +49,6 @@ export const BankPage = () => {
 
 	return (
 		<>
-			<AddBankModal
-				addModalVisible={addModalVisible}
-				setAddModalVisible={setAddModalVisible}
-			/>
 			<Card
 				title='Банківські установи'
 				style={{
@@ -69,7 +62,7 @@ export const BankPage = () => {
 						icon={<AppstoreAddOutlined />}
 						style={{ color: COLORS.success }}
 						key='add'
-						onClick={() => setAddModalVisible(true)}
+						onClick={() => navigate(`/banks/add`)}
 					>
 						Додати банк
 					</Button>,
@@ -104,54 +97,59 @@ export const BankPage = () => {
 							dataSource={banks}
 							itemLayout='horizontal'
 							renderItem={bank => (
-								<List.Item
-									actions={[
-										<Button
-											type='text'
-											style={{ color: COLORS.primary }}
-											icon={<InfoCircleOutlined />}
-											key='info'
-											onClick={() => navigate(`/banks/${bank.id}`)}
-										/>,
-										<Button
-											type='text'
-											style={{ color: COLORS.secondary }}
-											icon={<EditOutlined />}
-											key='edit'
-										/>,
-										<Popconfirm
-											title='Ви впевнені？'
-											okText='Так'
-											cancelText='Ні'
-											placement='left'
-											onConfirm={() => handleDeleteBank(bank.id)}
-										>
+								<>
+									<List.Item
+										actions={[
 											<Button
 												type='text'
-												style={{ color: COLORS.danger }}
-												icon={<DeleteOutlined />}
-												key='delete'
-											/>
-										</Popconfirm>
-									]}
-								>
-									<List.Item.Meta
-										avatar={
-											<Avatar
-												size='large'
-												shape='square'
-												src={
-													bank.avatar
-														? bank.avatar
-														: 'https://cdn-icons-png.flaticon.com/512/124/124486.png'
+												style={{ color: COLORS.primary }}
+												icon={<InfoCircleOutlined />}
+												key='info'
+												onClick={() => navigate(`/banks/${bank.id}`)}
+											/>,
+											<Button
+												type='text'
+												style={{ color: COLORS.secondary }}
+												icon={<EditOutlined />}
+												key='edit'
+												onClick={() =>
+													navigate(`/banks/edit/${bank.id}`)
 												}
-												onError={() => <InfoCircleOutlined />}
-											/>
-										}
-										title={bank.name}
-										description={`Рейтинг: ${bank.rate}`}
-									></List.Item.Meta>
-								</List.Item>
+											/>,
+											<Popconfirm
+												title='Ви впевнені？'
+												okText='Так'
+												cancelText='Ні'
+												placement='left'
+												onConfirm={() => handleDeleteBank(bank.id)}
+											>
+												<Button
+													type='text'
+													style={{ color: COLORS.danger }}
+													icon={<DeleteOutlined />}
+													key='delete'
+												/>
+											</Popconfirm>
+										]}
+									>
+										<List.Item.Meta
+											avatar={
+												<Avatar
+													size='large'
+													shape='square'
+													src={
+														bank.avatar
+															? bank.avatar
+															: 'https://cdn-icons-png.flaticon.com/512/124/124486.png'
+													}
+													onError={() => <InfoCircleOutlined />}
+												/>
+											}
+											title={bank.name}
+											description={`Рейтинг: ${bank.rate}`}
+										></List.Item.Meta>
+									</List.Item>
+								</>
 							)}
 						></List>
 					</Scrollbars>
