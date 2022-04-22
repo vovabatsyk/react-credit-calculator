@@ -30,11 +30,11 @@ const IconText = ({ icon, text }) => (
 )
 
 export const BankInfo = () => {
-	const { Title, Text } = Typography
+	const { Title } = Typography
 
 	const navigate = useNavigate()
 	const { id } = useParams()
-	const { data: bank, isLoading, isSuccess } = useGetBankQuery(id)
+	const { data: bank, isLoading } = useGetBankQuery(id)
 
 	return (
 		<Card
@@ -91,10 +91,28 @@ export const BankInfo = () => {
 									key='list-vertical-message'
 								/>
 							]}
-							extra={<img width={272} alt='logo' src={bank.avatar} />}
+							extra={
+								<img
+									width={272}
+									alt='logo'
+									src={
+										bank.avatar
+											? bank.avatar
+											: 'https://cdn-icons-png.flaticon.com/512/124/124486.png'
+									}
+								/>
+							}
 						>
 							<List.Item.Meta
-								avatar={<Avatar src={bank.avatar} />}
+								avatar={
+									<Avatar
+										src={
+											bank.avatar
+												? bank.avatar
+												: 'https://cdn-icons-png.flaticon.com/512/124/124486.png'
+										}
+									/>
+								}
 								title={bank.name}
 								description={bank.description}
 							/>

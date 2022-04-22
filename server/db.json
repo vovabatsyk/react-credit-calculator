@@ -9,7 +9,6 @@
       "term": "24",
       "avatar": "https://d2z9uwnt8eubh7.cloudfront.net/media/default/0001/07/0c3e8c9aee06ce531c562c93090e0bd11291a6c7.png",
       "description": "ПриватБа́нк — найбільший за розмірами активів український банк і лідер роздрібного банківського ринку України, зареєстрований 19 березня 1992 року."
-      
     },
     {
       "id": 3,
@@ -20,6 +19,26 @@
       "term": "24",
       "avatar": "https://lh5.ggpht.com/7SWtsYDHQ1Q7_U5x6qNzhE0cYKEQTuIJ9SzzRdGO4420Ig3olM2XMgGtAMLYN2K99w",
       "description": "ПУМБ – найбільший український банк з приватним капіталом, що надає всі види банківських послуг."
+    },
+    {
+      "name": "d",
+      "rate": "1",
+      "max": "1",
+      "min": "1",
+      "term": "1",
+      "description": "e",
+      "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Logo_NIKE.svg/2560px-Logo_NIKE.svg.png",
+      "id": 4
+    },
+    {
+      "name": "1",
+      "rate": "2",
+      "max": "2",
+      "min": "2",
+      "term": "2",
+      "description": "",
+      "avatar": "",
+      "id": 5
     }
   ]
 }
