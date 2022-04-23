@@ -19,7 +19,7 @@
     "react-scripts": "5.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node server.js",
     "dev": "concurrently \"npm run server\" \"npm run start\"",
     "server": "json-server -w server/db.json -p 3001",
     "build": "react-scripts build",

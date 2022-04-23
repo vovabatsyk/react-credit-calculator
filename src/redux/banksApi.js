@@ -6,7 +6,9 @@ import {
 export const banksApi = createApi({
 	reducerPath: 'banksApi',
 	tagTypes: ['Banks', 'Bank'],
-	baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3001/' }),
+	baseQuery: fetchBaseQuery({
+		baseUrl: 'https://toolkit-react-mortgage.herokuapp.com/'
+	}),
 	endpoints: build => ({
 		getBanks: build.query({
 			query: () => 'banks',
