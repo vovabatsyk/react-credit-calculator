@@ -1,14 +1,11 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
 	useGetBanksQuery,
-	useAddBankMutation,
 	useDeleteBankMutation
 } from '../redux/banksApi'
 import { useNavigate } from 'react-router-dom'
 import {
 	Button,
-	Layout,
-	Row,
 	Card,
 	Popconfirm,
 	List,
@@ -28,23 +25,13 @@ import {
 } from '@ant-design/icons'
 
 export const BankPage = () => {
-	// const [newBank, setNewBank] = useState({})
-
 	const navigate = useNavigate()
-
-	const [name, setName] = useState('')
-	const [rate, setRate] = useState(0)
-	const [min, setMin] = useState(0)
-	const [max, setMax] = useState(0)
-	const [term, setTerm] = useState(0)
 
 	const {
 		data: banks = [],
 		isLoading: isBanksLoading,
-		isError: isFetchBanksError,
-		error: fetchBankErrorMessage
+		isError: isFetchBanksError
 	} = useGetBanksQuery()
-	const [addBank, { isError, error }] = useAddBankMutation()
 	const [
 		deleteBank,
 		{
@@ -54,11 +41,6 @@ export const BankPage = () => {
 		}
 	] = useDeleteBankMutation()
 
-	const handleAddBank = async () => {
-		// if (newBank) {
-		await addBank({ name, rate, max, min, term }).unwrap()
-	}
-
 	const handleDeleteBank = async id => {
 		await deleteBank(id).unwrap()
 		if (isDeleteSuccess) message.success('Видалено успішно!')
@@ -66,106 +48,114 @@ export const BankPage = () => {
 	}
 
 	return (
-		<Card
-			title='Банківські установи'
-			style={{
-				height: '90%',
-				width: '90%',
-				boxShadow: SIZES.boxShadow
-			}}
-			extra={[
-				<Button
-					type='text'
-					icon={<AppstoreAddOutlined />}
-					style={{ color: COLORS.success }}
-					key='add'
-				>
-					Додати банк
-				</Button>,
-				<Button
-					type='text'
-					icon={<CalculatorOutlined />}
-					style={{ color: COLORS.primary }}
-					key='calculate'
-					onClick={() => navigate(`/credits`)}
-				>
-					До розрахунків
-				</Button>
-			]}
-		>
-			{isFetchBanksError ? (
-				<Alert
-					message='Помилка на сервері!'
-					description='Не вдалося загрузити список банків'
-					type='error'
-				/>
-			) : isBanksLoading ? (
-				<Skeleton active />
-			) : (
-				<Scrollbars
-					style={{
-						height: '100%',
-						minWidth: 320,
-						paddingRight: SIZES.padding
-					}}
-				>
-					<List
-						dataSource={banks}
-						itemLayout='horizontal'
-						renderItem={bank => (
-							<List.Item
-								actions={[
-									<Button
-										type='text'
-										style={{ color: COLORS.primary }}
-										icon={<InfoCircleOutlined />}
-										key='info'
-										onClick={() => navigate(`/banks/${bank.id}`)}
-									/>,
-									<Button
-										type='text'
-										style={{ color: COLORS.secondary }}
-										icon={<EditOutlined />}
-										key='edit'
-									/>,
-									<Popconfirm
-										title='Ви впевнені？'
-										okText='Так'
-										cancelText='Ні'
-										placement='left'
-										onConfirm={() => handleDeleteBank(bank.id)}
+		<>
+			<Card
+				title='Банківські установи'
+				style={{
+					height: '90%',
+					width: '90%',
+					boxShadow: SIZES.boxShadow
+				}}
+				extra={[
+					<Button
+						type='text'
+						icon={<AppstoreAddOutlined />}
+						style={{ color: COLORS.success }}
+						key='add'
+						onClick={() => navigate(`/banks/add`)}
+					>
+						Додати банк
+					</Button>,
+					<Button
+						type='text'
+						icon={<CalculatorOutlined />}
+						style={{ color: COLORS.primary }}
+						key='calculate'
+						onClick={() => navigate(`/credits`)}
+					>
+						До розрахунків
+					</Button>
+				]}
+			>
+				{isFetchBanksError ? (
+					<Alert
+						message='Помилка на сервері!'
+						description='Не вдалося загрузити список банків'
+						type='error'
+					/>
+				) : isBanksLoading ? (
+					<Skeleton active />
+				) : (
+					<Scrollbars
+						style={{
+							height: '100%',
+							minWidth: 320,
+							paddingRight: SIZES.padding
+						}}
+					>
+						<List
+							dataSource={banks}
+							itemLayout='horizontal'
+							renderItem={bank => (
+								<>
+									<List.Item
+										actions={[
+											<Button
+												type='text'
+												style={{ color: COLORS.primary }}
+												icon={<InfoCircleOutlined />}
+												key='info'
+												onClick={() => navigate(`/banks/${bank.id}`)}
+											/>,
+											<Button
+												type='text'
+												style={{ color: COLORS.secondary }}
+												icon={<EditOutlined />}
+												key='edit'
+												onClick={() =>
+													navigate(`/banks/edit/${bank.id}`)
+												}
+											/>,
+											<Popconfirm
+												title='Ви впевнені？'
+												okText='Так'
+												cancelText='Ні'
+												placement='left'
+												onConfirm={() => handleDeleteBank(bank.id)}
+											>
+												<Button
+													type='text'
+													style={{ color: COLORS.danger }}
+													icon={<DeleteOutlined />}
+													key='delete'
+												/>
+											</Popconfirm>
+										]}
 									>
-										<Button
-											type='text'
-											style={{ color: COLORS.danger }}
-											icon={<DeleteOutlined />}
-											key='delete'
-										/>
-									</Popconfirm>
-								]}
-							>
-								<List.Item.Meta
-									avatar={
-										<Avatar
-											size='large'
-											shape='square'
-											src={
-												bank.avatar
-													? bank.avatar
-													: 'https://cdn-icons-png.flaticon.com/512/124/124486.png'
+										<List.Item.Meta
+											avatar={
+												<Avatar
+													size='large'
+													shape='square'
+													src={
+														bank.avatar
+															? bank.avatar
+															: 'https://cdn-icons-png.flaticon.com/512/124/124486.png'
+													}
+													onError={() => <InfoCircleOutlined />}
+												/>
 											}
-											onError={() => <InfoCircleOutlined />}
-										/>
-									}
-									title={bank.name}
-									description={`Рейтинг: ${bank.rate}`}
-								></List.Item.Meta>
-							</List.Item>
-						)}
-					></List>
-				</Scrollbars>
-			)}
-		</Card>
+											title={bank.name}
+											description={`Процентна ставка: ${bank.rate}%`}
+										></List.Item.Meta>
+									</List.Item>
+								</>
+							)}
+						></List>
+					</Scrollbars>
+				)}
+			</Card>
+		</>
 	)
 }
 

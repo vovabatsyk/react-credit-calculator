@@ -8,8 +8,10 @@ import {
 
 import { BankPage } from './pages/BankPage'
 import { CreditPage } from './pages/CreditPage'
-import { BankInfo } from './components/BankInfo'
+import { BankInfo } from './pages/BankInfo'
 import { LayoutComponent } from './components/LayoutComponent'
+import { EditBankPage } from './pages/EditBankPage'
+import { AddBankPage } from './pages/AddBankPage'
 
 function App() {
 	return (
@@ -19,6 +21,8 @@ function App() {
 					<Route path='/banks'>
 						<Route index element={<BankPage />} />
 						<Route path=':id' element={<BankInfo />} />
+						<Route path='edit/:id' element={<EditBankPage />} />
+						<Route path='add' element={<AddBankPage />} />
 					</Route>
 					<Route path='credits' element={<CreditPage />} />
 					<Route
