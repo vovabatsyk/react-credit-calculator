@@ -120,18 +120,20 @@ export const BankInfo = () => {
 							<Divider orientation='left'>Інфо</Divider>
 							<List>
 								<List.Item>
-									<Typography.Text strong>Рейтинг: </Typography.Text>
+									<Typography.Text strong>
+										Процентна ставка:{' '}
+									</Typography.Text>
 									{bank.rate}
 								</List.Item>
 								<List.Item>
 									<Typography.Text strong>
-										Максимальна сума:{' '}
+										Максимальна сума позики:{' '}
 									</Typography.Text>
 									{bank.max} UAH
 								</List.Item>
 								<List.Item>
 									<Typography.Text strong>
-										Мінімальна сума:{' '}
+										Мінімальна сума першого внеску:{' '}
 									</Typography.Text>
 									{bank.min} UAH
 								</List.Item>

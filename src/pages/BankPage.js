@@ -146,7 +146,7 @@ export const BankPage = () => {
 												/>
 											}
 											title={bank.name}
-											description={`Рейтинг: ${bank.rate}`}
+											description={`Процентна ставка: ${bank.rate}%`}
 										></List.Item.Meta>
 									</List.Item>
 								</>

@@ -153,12 +153,12 @@ export const AddBankPage = () => {
 					</Form.Item>
 
 					<Form.Item
-						label='Рейтинг'
+						label='Процентна ставка'
 						name='rate'
 						rules={[
 							{
 								required: true,
-								message: 'Рейтинг є обовязковим полем!'
+								message: 'Це поле є обовязковим!'
 							}
 						]}
 					>
@@ -173,12 +173,12 @@ export const AddBankPage = () => {
 					</Form.Item>
 
 					<Form.Item
-						label='Максимум'
+						label='Максимальна сума позики'
 						name='max'
 						rules={[
 							{
 								required: true,
-								message: 'Максимум є обовязковим полем!'
+								message: 'Це поле є обовязковим!'
 							}
 						]}
 					>
@@ -191,18 +191,19 @@ export const AddBankPage = () => {
 					</Form.Item>
 
 					<Form.Item
-						label='Мінімум'
+						label='Мінімальна сума першого внеску %'
 						name='min'
 						rules={[
 							{
 								required: true,
-								message: 'Мінімум є обовязковим полем!'
+								message: 'Це поле є обовязковим!'
 							}
 						]}
 					>
 						<Input
 							type='number'
 							min={1}
+							max={100}
 							value={min}
 							onChange={e => setMin(e.target.value)}
 						/>

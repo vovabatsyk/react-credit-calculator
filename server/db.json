@@ -1,22 +1,22 @@
 {
   "banks": [
     {
-      "name": "PrivatBank",
+      "name": "Приватбанк",
       "description": "ПриватБа́нк — найбільший за розмірами активів український банк і лідер роздрібного банківського ринку України, зареєстрований 19 березня 1992 року.",
       "avatar": "https://d2z9uwnt8eubh7.cloudfront.net/media/default/0001/07/0c3e8c9aee06ce531c562c93090e0bd11291a6c7.png",
-      "rate": "4.5",
-      "max": "3500",
+      "rate": "1.5",
+      "max": "10000",
       "min": "10",
-      "term": "24",
+      "term": "10",
       "id": 2
     },
     {
       "name": "PUMB",
       "description": "ПУМБ – найбільший український банк з приватним капіталом, що надає всі види банківських послуг.",
       "avatar": "https://lh5.ggpht.com/7SWtsYDHQ1Q7_U5x6qNzhE0cYKEQTuIJ9SzzRdGO4420Ig3olM2XMgGtAMLYN2K99w",
-      "rate": "4.8",
-      "max": "3500",
-      "min": "10",
+      "rate": "1.8",
+      "max": "10000",
+      "min": "12",
       "term": "24",
       "id": 3
     },
@@ -24,21 +24,11 @@
       "name": "Monobank",
       "description": "monobank — роздрібний продукт АТ «Універсал Банк», який виник у рамках співпраці з командою Fintech Band.",
       "avatar": "https://cdn-images-1.medium.com/max/1200/1*PxKUZIus4lJELdfYKYJuyA.png",
-      "rate": "4.8",
-      "max": "110000",
-      "min": "10",
-      "term": "24",
+      "rate": "2.5",
+      "max": "20000",
+      "min": "20",
+      "term": "12",
       "id": 5
-    },
-    {
-      "name": "222",
-      "rate": "2",
-      "max": "2",
-      "min": "2",
-      "term": "2",
-      "description": "22",
-      "avatar": "22",
-      "id": 6
     }
   ]
 }
